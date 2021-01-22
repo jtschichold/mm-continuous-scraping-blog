@@ -1,0 +1,29 @@
+name: Continuous Scraping
+
+on:
+  workflow_dispatch:
+  schedule:
+    # every 13 hours
+    - cron:  '*/15 * * * *'
+
+jobs:
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Checkout"
+  Fetch:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Fetch"
+  Filter & Transform:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Filter & Transform"
+  Check & Update:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Check & Update"
+  Collect!:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Collect"
