@@ -23,7 +23,7 @@ jobs:
     # Fetch
     - name: Fetch the endpoint lists
       # here we pin a specific commit, for increased security
-      uses: jtschichold/mm-cloud-services-miners@24e6b2d
+      uses: jtschichold/mm-cloud-services-miners@24e6b2d1f2ec1c9eff8eda528742bf1ed6a04049
       with:
         config: ./cloud-services-mining-config.yml
         configSection: azure
@@ -31,7 +31,7 @@ jobs:
     # Filter & Transform
     - name: Process IP lists
       # we pin a specific commit, for increased security
-      uses: jtschichold/mm-process-ip-list@301234354e
+      uses: jtschichold/mm-process-ip-list@a4725a3d55a6951e88e59dd0f04a823220e20910
       with:
         # process al the lists matching the glob
         list: ./**/*ips.txt
@@ -51,7 +51,7 @@ jobs:
     # check before commit
     - name: Check changes
       id: check_changes
-      uses: jtschichold/mm-check-changes@53cbe86
+      uses: jtschichold/mm-check-changes@53cbe86e0b7b8dffe63209c02d7138045b254303
       with:
         includeGlob: '**/*.txt'
     # commit
@@ -77,6 +77,6 @@ jobs:
       # same as above, but reversed logci
       # we want this step to be executed only if bigChange is 'true'
       if: steps.check_changes.outputs.bigChange == 'true'
-      uses: peter-evans/create-pull-request@45c510e
+      uses: peter-evans/create-pull-request@45c510e1f68ba052e3cd911f661a799cfb9ba3a3
       with:
         branch: please-check-changes
