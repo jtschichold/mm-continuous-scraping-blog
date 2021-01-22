@@ -12,18 +12,22 @@ jobs:
     steps:
     - run: echo "Checkout"
   Fetch:
+    needs: Checkout
     runs-on: ubuntu-latest
     steps:
     - run: echo "Fetch"
-  Filter & Transform:
+  Filter and Transform:
+    needs: Fetch
     runs-on: ubuntu-latest
     steps:
     - run: echo "Filter & Transform"
-  Check & Update:
+  Check and Update:
+    needs: Filter and Transform
     runs-on: ubuntu-latest
     steps:
     - run: echo "Check & Update"
-  Collect!:
+  Collect:
+    needs: Check and Update
     runs-on: ubuntu-latest
     steps:
     - run: echo "Collect"
