@@ -16,18 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "Fetch"
-  Filter and Transform:
+  FilterAndTransform:
     needs: Fetch
     runs-on: ubuntu-latest
     steps:
     - run: echo "Filter & Transform"
-  Check and Update:
-    needs: Filter and Transform
+  CheckAndUpdate:
+    needs: FilterAndTransform
     runs-on: ubuntu-latest
     steps:
     - run: echo "Check & Update"
   Collect:
-    needs: Check and Update
+    needs: CheckAndUpdate
     runs-on: ubuntu-latest
     steps:
     - run: echo "Collect"
